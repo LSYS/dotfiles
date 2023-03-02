@@ -1,0 +1,11 @@
+pandas
+janitor
+numpy
+scipy
+statsmodel
+forestplot
+runpynb
+lexicalrichness
+matplotlib
+seaborn
+
