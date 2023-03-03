@@ -1,0 +1,7 @@
+pytest
+coverage
+mypy
+isort
+black
+twine
+pyflakes

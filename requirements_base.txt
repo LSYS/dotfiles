@@ -2,10 +2,11 @@ pandas
 janitor
 numpy
 scipy
-statsmodel
+statsmodels
 forestplot
 runpynb
 lexicalrichness
 matplotlib
 seaborn
+xlrd
 
