@@ -1,5 +1,5 @@
 pandas
-janitor
+pyjanitor
 numpy
 scipy
 statsmodels
@@ -9,4 +9,4 @@ lexicalrichness
 matplotlib
 seaborn
 xlrd
-
+ConfigParser

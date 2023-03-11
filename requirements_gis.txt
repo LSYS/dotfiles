@@ -2,3 +2,5 @@ geopandas
 keplergl
 contextily
 mapclassify
+notebook==6.4.8
+jupyter_contrib_nbextensions
