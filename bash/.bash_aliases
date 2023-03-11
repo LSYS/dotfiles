@@ -45,8 +45,11 @@ alias tree="exa \
 	--tree \
 	--level=2 \
 	--long \
+	--group-directories-first \
 	--header \
-	--git
+	--git \
+	--all \
+	--ignore-glob .git
 	"
 
 
