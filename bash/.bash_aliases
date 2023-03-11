@@ -66,7 +66,7 @@ alias sagi="sudo apt-get install"
 alias sai="sudo apt install"
 alias sagr="sudo apt-get remove"
 
-# Run last command as root
+# Rerun last command as root
 alias rr='sudo $(history -p !!)'
 alias please=rr
 alias pls=rr
@@ -74,5 +74,7 @@ alias pls=rr
 
 #==============================================================================
 # bat/batcat (https://github.com/sharkdp/bat#how-to-use)
-alias bat=batcat
+if type -p batcat >/dev/null 2>&1; then
+	alias bat=batcat
+fi
 alias cat=bat
