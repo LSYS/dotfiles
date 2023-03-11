@@ -59,6 +59,7 @@ alias cls=cl
 #==============================================================================
 # Installs
 alias sag="sudo apt-get"
+alias sagu="sudo apt-get update"
 alias sagi="sudo apt-get install"
 alias sagr="sudo apt-get remove"
 
