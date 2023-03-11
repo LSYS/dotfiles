@@ -59,8 +59,11 @@ alias cls=cl
 #==============================================================================
 # Installs
 alias sag="sudo apt-get"
+alias sa="sudo apt"
 alias sagu="sudo apt-get update"
+alias sau="sudo apt update"
 alias sagi="sudo apt-get install"
+alias sai="sudo apt install"
 alias sagr="sudo apt-get remove"
 
 # Run last command as root
@@ -72,3 +75,4 @@ alias pls=rr
 #==============================================================================
 # bat/batcat (https://github.com/sharkdp/bat#how-to-use)
 alias bat=batcat
+alias cat=bat
