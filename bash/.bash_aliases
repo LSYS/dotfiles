@@ -66,3 +66,8 @@ alias sagr="sudo apt-get remove"
 alias rr='sudo $(history -p !!)'
 alias please=rr
 alias pls=rr
+
+
+#==============================================================================
+# bat/batcat (https://github.com/sharkdp/bat#how-to-use)
+alias bat=batcat
