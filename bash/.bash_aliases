@@ -59,7 +59,7 @@ alias cls=cl
 #==============================================================================
 # Installs
 alias sag="sudo apt-get"
-alias sag="sudo apt-get install"
+alias sagi="sudo apt-get install"
 alias sagr="sudo apt-get remove"
 
 # Run last command as root
