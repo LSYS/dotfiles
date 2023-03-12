@@ -116,6 +116,11 @@ alias cddf="cd ~/dotfiles"
 alias cdf=cddf
 
 
+# Make directory and cd into it
+alias mkcd='function _mkcd() { mkdir -p "$1" && cd "$1"; }; _mkcd'
+alias mkdircd=mkcd
+
+
 #==============================================================================
 # Go up to root of a Git repository
 function go-up-to-git-root {
