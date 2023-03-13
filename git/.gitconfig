@@ -1,0 +1,17 @@
+[user]
+name = LSYS
+    email = lucas@lucasshen.com
+[core]
+    editor = nano
+[init]
+    defaultBranch = main
+[credential]
+    helper = store
+[alias]
+    ec = config --global -e
+    open = "!f() { REPO_URL=$(git config remote.origin.url); explorer.exe ${REPO_URL%%.git}; }; f"
+    browse = !git open
+    save = !git add -A && git commit -m 'SAVEPOINT'
+    wip = !git add -u && git commit -m "WIP"
+    undo = reset HEAD~1 --mixed
+    amend = commit -a --amend

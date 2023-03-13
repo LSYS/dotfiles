@@ -6,6 +6,7 @@ INSTALL_PATH="$HOME"
 
 
 install() {
+	echo "================" 
 	echo "Install dotfiles"
 	echo "================" 
 	echo "Install a dotfile to the system."
@@ -13,6 +14,7 @@ install() {
 	echo "Usage: $0 install dotfile [-p installpath]"
 	echo "       -p installation path (default: $HOME)"
 	echo
+	echo "--------------------------------------------" 
 
 	local dotfile="$1"
 	local installpath=$INSTALL_PATH
@@ -47,5 +49,6 @@ install() {
 # Install dotfiles
 # ================
 install bash/.bash_aliases
+install git/.gitconfig
 
 
