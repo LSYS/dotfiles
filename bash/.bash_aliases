@@ -3,6 +3,7 @@ alias al=aliases
 alias showal=aliases
 alias sal=aliases
 alias iforgot=aliases
+alias edal="subl ~/doftfiles/bash/.bash_aliases"
 
 
 #==============================================================================
@@ -29,19 +30,23 @@ alias cls=cl
 
 #==============================================================================
 # Sublime Text
-ST_SOURCE1="/mnt/d/Program\ Files/Sublime\ Text\ 3/sublime_text.exe"
-ST_SOURCE2="/mnt/c/Program\ Files/Sublime\ Text/sublime_text.exe"
+ST_SOURCE1="/mnt/d/Program Files/Sublime Text 3/sublime_text.exe"
+ST_SOURCE2="/mnt/c/Program Files/Sublime Text/sublime_text.exe"
 
-if test -f "$ST_SOURCE1"; then
-	alias subl=$ST_SOURCE1
-elif test -f "$ST_SOURCE2"; then
-	alias subl=$ST_SOURCE2
+ST_SOURCE1_WITH_BACKSLASHES=$(echo "$ST_SOURCE1" | sed 's/ /\\ /g')
+ST_SOURCE2_WITH_BACKSLASHES=$(echo "$ST_SOURCE2" | sed 's/ /\\ /g')
+if [ -x "$ST_SOURCE1" ]; then
+  alias sublimetext="$ST_SOURCE1_WITH_BACKSLASHES"
+elif [ -x "$ST_SOURCE2" ]; then
+  alias sublimetext="$ST_SOURCE2_WITH_BACKSLASHES"
+else
+  echo "Error: neither path exists."
 fi
 
-alias sublime=subl
-alias sublimetext=subl
-alias st=subl
-alias sub=subl
+alias sublime=sublimetext
+alias subl=sublimetext
+alias st=sublimetext
+alias sub=sublimetext
 
 
 #==============================================================================
