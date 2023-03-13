@@ -1,9 +1,24 @@
+#==============================================================================
 alias aliases="cat ~/.bash_aliases"
 alias al=aliases
 alias showal=aliases
 alias sal=aliases
 alias iforgot=aliases
 alias edal="subl ~/doftfiles/bash/.bash_aliases"
+
+alias aliashelp='echo    "=========================" \
+								 && echo "Quick help for my aliases" \
+								 && echo "=========================" \
+								 && echo "aliases: Show all aliases in .bash_aliases" \
+								 && echo "gital:   Show all Git aliases in .gitconfig" \
+								 && echo "edal:  	 Edit .bash_aliases" \
+                 && echo "ebrc:    Edit .bashrc (and then source afterwards)" \
+                 && echo "ep:    	 Edit .profile (and then source afterwards)" \
+                 && echo "clear:   Clear console" \
+                 && echo "cgr:     cd to root of Git repo" \
+                 && echo "cdf:     cd to my dotfiles (src Git repo)"
+                 '
+alias ahelp=aliashelp
 
 
 #==============================================================================
@@ -20,6 +35,7 @@ alias sagr="sudo apt-get remove"
 #==============================================================================
 # Quick edits of config file(s)
 alias nbrc="nano ~/.bashrc && source ~/.bashrc"
+alias ebrc=nbrc
 
 
 #==============================================================================
@@ -35,6 +51,7 @@ ST_SOURCE2="/mnt/c/Program Files/Sublime Text/sublime_text.exe"
 
 ST_SOURCE1_WITH_BACKSLASHES=$(echo "$ST_SOURCE1" | sed 's/ /\\ /g')
 ST_SOURCE2_WITH_BACKSLASHES=$(echo "$ST_SOURCE2" | sed 's/ /\\ /g')
+
 if [ -x "$ST_SOURCE1" ]; then
   alias sublimetext="$ST_SOURCE1_WITH_BACKSLASHES"
 elif [ -x "$ST_SOURCE2" ]; then
@@ -111,7 +128,7 @@ alias uuuu="cd ../../../..;"
 alias uuuuu="cd ../../../../..;"
 
 # open ~/.profile for me (e.g. to change oh-my-posh theme)
-alias np="nano ~/.profile"
+alias ep="nano ~/.profile && source ~/.profile"
 
 # source bashrc
 alias sbrc="source ~/.bashrc"
@@ -157,3 +174,7 @@ alias gp='git push'
 alias gu='git unstage'
 alias gco='git checkout'
 alias gb='git branch'
+
+alias gitaliases="git config --get-regexp '^alias\.' | sed 's/^alias\.//'"
+alias gital=gitaliases
+alias galias=gitaliases
