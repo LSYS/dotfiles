@@ -40,8 +40,8 @@ function fs() {
 }
 
 
-# `start` with no arguments opens the current directory, otherwise opens the given
-# location
+
+# `start` with no arguments opens the current directory, otherwise opens the given location
 function start() {
   if [ $# -eq 0 ]; then
     wstart .;

@@ -70,11 +70,6 @@ alias sub=sublimetext
 
 
 #==============================================================================
-# File explorer
-alias start=wstart
-
-
-#==============================================================================
 # Replace notepad with notepads
 alias notepad=notepads.exe
 
