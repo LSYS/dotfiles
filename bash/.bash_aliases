@@ -101,6 +101,15 @@ alias tree="exa \
 	--ignore-glob .git
 	"
 
+alias treev="exa \
+	--tree \
+	--level=2 \
+	--group-directories-first \
+	--git \
+	--all \
+	--ignore-glob .git
+	"	
+
 
 #==============================================================================
 # Rerun last command as root

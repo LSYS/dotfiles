@@ -36,7 +36,7 @@ install() {
 
 	if [ -f "$dotfile" ]; then
 		echo "Installing $dotfile to $installpath/$(basename $dotfile)" 
-		ln -sf "$SRC" "$INSTALL_PATH/$(basename "$SRC")"
+		ln -sfv "$SRC" "$INSTALL_PATH/$(basename "$SRC")"
 	else
         echo "Error: $dotfile does not exist"
 		return 1
