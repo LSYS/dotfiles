@@ -15,7 +15,10 @@ alias aliashelp='echo    "=========================" \
                  && echo "ebrc:    Edit .bashrc (and then source afterwards)" \
                  && echo "ep:    	 Edit .profile (and then source afterwards)" \
                  && echo "clear:   Clear console" \
+                 && echo "o:       Open file explorer here" \
+                 && echo "mkcd:    mkdir and cd into it" \
                  && echo "cgr:     cd to root of Git repo" \
+                 && echo "cgd:     cd to Windows mounted D drive" \
                  && echo "cdf:     cd to my dotfiles (src Git repo)"
                  '
 alias ahelp=aliashelp
@@ -138,22 +141,24 @@ alias cddf="cd ~/dotfiles"
 alias cdf=cddf
 
 
-# Make directory and cd into it
-alias mkcd='function _mkcd() { mkdir -p "$1" && cd "$1"; }; _mkcd'
-alias mkdircd=mkcd
+# Make directory and cd into it (see .functions)
+alias mkcd=mkdircd
+alias mcd=mkdircd
+
+# quick cd to windows mounted drives
+alias cdc="cd /mnt/c"
+alias cdd="cd /mnt/d"
+
+# touch a file and edit (see .functions)
+alias te="touchedit"
+
+# Open director (see .functions)
+alias open="start"
+alias o="start"
 
 
 #==============================================================================
 # Go up to root of a Git repository
-function go-up-to-git-root {
-  # > /dev/null 2>&1 discards both stdout and stderr of the git command 
-  # to the null device (/dev/null)
-  if ! git rev-parse --show-toplevel > /dev/null 2>&1; then
-    echo "Error: Not inside a Git repository"
-    return 1
-  fi
-  cd $(git rev-parse --show-toplevel)
-}
 alias gitroot='go-up-to-git-root'
 alias gr=gitroot
 alias cgr=gitroot

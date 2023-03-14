@@ -4,17 +4,18 @@
 DOTFILES_MASTER="$HOME/dotfiles"
 INSTALL_PATH="$HOME"
 
+echo "================" 
+echo "Install dotfiles"
+echo "================" 
+echo "Install a dotfile to the system."
+echo
+echo "Usage: $0 install dotfile [-p installpath]"
+echo "       -p installation path (default: $HOME)"
+echo
+echo "--------------------------------------------" 
+
 
 install() {
-	echo "================" 
-	echo "Install dotfiles"
-	echo "================" 
-	echo "Install a dotfile to the system."
-	echo
-	echo "Usage: $0 install dotfile [-p installpath]"
-	echo "       -p installation path (default: $HOME)"
-	echo
-	echo "--------------------------------------------" 
 
 	local dotfile="$1"
 	local installpath=$INSTALL_PATH
@@ -49,6 +50,10 @@ install() {
 # Install dotfiles
 # ================
 install bash/.bash_aliases
+install bash/.bash_profile
+install bash/.functions
+install bash/.inputrc
+install bash/.exports
 install git/.gitconfig
 
 

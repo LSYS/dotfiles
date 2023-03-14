@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+# Create a new directory and enter it
+function mkdircd() {
+	mkdir -p "$@" && cd "$_";
+}
+
+function touchedit() {
+	touch "$@" && subl "$_";
+}
+
+
+# cd to root directory of a Git repo, if in a Git repo
+function go-up-to-git-root {
+  # > /dev/null 2>&1 discards both stdout and stderr of the git command 
+  # to the null device (/dev/null)
+  if ! git rev-parse --show-toplevel > /dev/null 2>&1; then
+    echo "Error: Not inside a Git repository"
+    return 1
+  fi
+  cd $(git rev-parse --show-toplevel)
+}
+
+
+# Determine size of a file or total size of a directory and sort descending
+function fs() {
+  # Check if `du` supports the `-b` (bytes) option. If it does, the arg variable 
+  # is set to -sbh (show sizes in human-readable format with byte suffixes). 
+  # Otherwise, arg is set to -sh (show sizes in human-readable format with suffixes). 
+  if du -b /dev/null > /dev/null 2>&1; then
+    local arg=-sbh;
+  else
+    local arg=-sh;
+  fi
+  if [[ -n "$@" ]]; then
+    du $arg -- "$@" | sort -hr;
+  else
+    du $arg .[^.]* ./* | sort -hr;
+  fi;
+}
+
+
+# `start` with no arguments opens the current directory, otherwise opens the given
+# location
+function start() {
+  if [ $# -eq 0 ]; then
+    wstart .;
+  else
+    wstart "$@";
+  fi;
+}
