@@ -49,3 +49,29 @@ function start() {
     wstart "$@";
   fi;
 }
+
+
+# Clean up Linux system to keep it running smoothly
+apt-clean() {
+    # Removes all package files that can be downloaded from the repositories and cached locally 
+    # in the system's package cache. This will free up disk space and remove packages that are
+    # no longer needed.
+    sudo apt-get clean
+    # Removes only the package files that have been cached for a period of time and are 
+    # no longer needed.
+    sudo apt-get autoclean
+    # Removes any packages that were automatically installed as dependencies of other packages, 
+    # but are no longer needed by any installed package. This can help to free up disk space 
+    # and remove clutter from the system.
+    sudo apt-get autoremove
+}
+
+
+# Weather
+weather1() {
+    curl -s "https://wttr.in/${1:-Singapore}?m2F"
+}
+
+weather2() {
+    curl -s "https://wttr.in/${1:-Singapore}?m2F&format=v2"
+}
