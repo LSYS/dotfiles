@@ -12,13 +12,14 @@ echo
 echo "Usage: $0 install dotfile [-p installpath]"
 echo "       -p installation path (default: $HOME)"
 echo
+echo "Example: install <dotfile> <path_to_install_to>"
+echo
 echo "--------------------------------------------" 
 
 
 install() {
-
-	local dotfile="$1"
-	local installpath=$INSTALL_PATH
+    local dotfile="$1"
+    local installpath="$INSTALL_PATH"
 
     if [ "$#" -eq 2 ]; then
         installpath="$2"
@@ -29,18 +30,18 @@ install() {
         return 1
     fi
 
-	SRC=$DOTFILES_MASTER/$dotfile
-	if [ -e "$SRC-$HOSTNAME" ]; then
-    	SRC="$SRC-$HOSTNAME"
-	fi
+    SRC="$DOTFILES_MASTER/$dotfile"
+    if [ -e "$SRC-$HOSTNAME" ]; then
+        SRC="$SRC-$HOSTNAME"
+    fi
 
-	if [ -f "$dotfile" ]; then
-		echo "Installing $dotfile to $installpath/$(basename $dotfile)" 
-		ln -sfv "$SRC" "$INSTALL_PATH/$(basename "$SRC")"
-	else
+    if [ -f "$dotfile" ]; then
+        echo "Installing $dotfile to $installpath/$(basename $dotfile)"
+        ln -sfv "$SRC" "$installpath/$(basename "$SRC")"
+    else
         echo "Error: $dotfile does not exist"
-		return 1
-	fi
+        return 1
+    fi
 }
 
 # this should fail:
@@ -49,11 +50,10 @@ install() {
 # ================
 # Install dotfiles
 # ================
-install bash/.bash_aliases
-install bash/.bash_profile
-install bash/.functions
-install bash/.inputrc
-install bash/.exports
-install git/.gitconfig
-
-
+# ${dotfile//$'\r'} removes any carriage return characters that may be present in the input file. 
+# This can happen if the input file was created on a Windows system or if it was edited with certain 
+# text editors.
+while read dotfile ; do
+	dotfile="${dotfile//$'\r'}"
+	install "$dotfile"
+done < .dotfiles
