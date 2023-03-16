@@ -4,7 +4,7 @@ alias al=aliases
 alias showal=aliases
 alias sal=aliases
 alias iforgot=aliases
-alias edal="subl ~/doftfiles/bash/.bash_aliases"
+alias edal="subl ~/dotfiles/bash/.bash_aliases"
 
 alias aliashelp='echo    "=========================" \
 								 && echo "Quick help for my aliases" \

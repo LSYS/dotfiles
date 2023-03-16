@@ -15,3 +15,4 @@ name = LSYS
     wip = !git add -u && git commit -m "WIP"
     undo = reset HEAD~1 --mixed
     amend = commit -a --amend
+    lg = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
