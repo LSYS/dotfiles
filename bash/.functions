@@ -52,7 +52,7 @@ function start() {
 
 
 # Clean up Linux system to keep it running smoothly
-apt-clean() {
+apt-cleanup() {
     # Removes all package files that can be downloaded from the repositories and cached locally 
     # in the system's package cache. This will free up disk space and remove packages that are
     # no longer needed.
@@ -67,6 +67,18 @@ apt-clean() {
 }
 
 
+brew-cleanup() {
+  # Update Homebrew formulae and Homebrew itself
+  brew update
+  # Remove outdated versions of installed formulae
+  brew cleanup -s
+  # Remove any older versions of installed formulae
+  brew autoremove --force
+  # Remove all downloaded source files, and clear out the Homebrew cache
+  brew cleanup -s --prune=all --verbose
+}
+
+
 # Weather
 weather1() {
     curl -s "https://wttr.in/${1:-Singapore}?m2F"
@@ -74,4 +86,18 @@ weather1() {
 
 weather2() {
     curl -s "https://wttr.in/${1:-Singapore}?m2F&format=v2"
+}
+
+
+# Report a list of my dotfiles in $HOME
+function repdfile {
+  for dotfile in $HOME/.*
+  do
+    # Skip special directories and files that are not regular files
+    if [[ "$dotfile" == "$HOME/." || "$dotfile" == "$HOME/.." || ! -f "$dotfile" ]]; then
+      continue
+    fi
+    
+    echo "$(basename $dotfile)"
+  done
 }

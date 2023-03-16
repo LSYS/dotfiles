@@ -40,5 +40,6 @@ eval "$(oh-my-posh --init --shell bash --config ~/poshthemes/slim.omp.json)"
 
 
 #============================================================================
+cd
 clear
 echo "Type 'ahelp' for quick help on my shell aliases"
