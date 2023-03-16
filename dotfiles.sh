@@ -53,7 +53,10 @@ install() {
 # ${dotfile//$'\r'} removes any carriage return characters that may be present in the input file. 
 # This can happen if the input file was created on a Windows system or if it was edited with certain 
 # text editors.
-while read dotfile ; do
+#
+# -r: read the last line of the file even if it does not end with a newline character
+while read dotfile 
+do
 	dotfile="${dotfile//$'\r'}"
 	install "$dotfile"
 done < .dotfiles
