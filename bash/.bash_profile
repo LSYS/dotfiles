@@ -4,15 +4,6 @@
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
-
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
-
 #============================================================================
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -20,7 +11,7 @@ bashdotfiles=(
     bash_aliases
     exports
     functions
-    )
+)
 for file in "${bashdotfiles[@]}"; do
     file=~/."$file"
     if [ -f "$file" ]; then
@@ -31,6 +22,12 @@ unset file;
 
 # Load configs in inputrc
 bind -f ~/.inputrc
+
+
+#============================================================================
+# nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 #============================================================================

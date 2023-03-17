@@ -25,3 +25,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# NPM
+export NVM_DIR="$HOME/.nvm"
