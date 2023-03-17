@@ -2,8 +2,14 @@
 
 # Create a new directory and enter it
 function mkdircd() {
-	mkdir -p "$@" && cd "$_";
+  if mkdir -p "$@" && cd "$_"; then
+    return 0
+  else
+    echo "Failed to change directory" >&2
+    return 1
+  fi
 }
+
 
 function touchedit() {
 	touch "$@" && subl "$_";
@@ -18,7 +24,13 @@ function go-up-to-git-root {
     echo "Error: Not inside a Git repository"
     return 1
   fi
-  cd $(git rev-parse --show-toplevel)
+  if cd "$(git rev-parse --show-toplevel)"; then
+    return 0
+  else
+    echo "Failed to change directory" >&2
+    return 1
+  fi
+  
 }
 
 
@@ -38,7 +50,6 @@ function fs() {
     du $arg .[^.]* ./* | sort -hr;
   fi;
 }
-
 
 
 # `start` with no arguments opens the current directory, otherwise opens the given location
@@ -91,13 +102,12 @@ weather2() {
 
 # Report a list of my dotfiles in $HOME
 function repdfile {
-  for dotfile in $HOME/.*
+  for dotfile in "$HOME"/.*
   do
     # Skip special directories and files that are not regular files
     if [[ "$dotfile" == "$HOME/." || "$dotfile" == "$HOME/.." || ! -f "$dotfile" ]]; then
       continue
     fi
-    
-    echo "$(basename $dotfile)"
+    basename "$dotfile"
   done
 }

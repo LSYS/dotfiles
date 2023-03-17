@@ -174,6 +174,7 @@ alias cdgr=gitroot
 alias ga='git add'
 alias gc='git commit'
 alias gcm='git commit -m'
+alias gac='git add -A && git commit -m'
 alias gs='git status'
 alias gd='git diff'
 alias gf='git fetch'
