@@ -1,5 +1,5 @@
 # .files for Windows + WSL
-![alt text](_mugshot.png)
+![alt text](~mugshot.png)
 
 ## My key concerns/needs
 

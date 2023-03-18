@@ -1,0 +1,18 @@
+# Excluded URLs and keys
+https?://mail.google.com/*
+https?://localhost:88**/*
+
+# Custom key mappings
+# Insert your preferred key mappings here.
+map s scrollDown
+map w scrollUp
+map a scrollLeft
+map d scrollRightG
+map W scrollToTop
+map S scrollToBottom
+map r previousTab
+map t nextTab
+map u visitPreviousTab
+map R firstTab
+map T lastTab
+map G Vomnibar.activateTabSelection
