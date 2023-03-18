@@ -10,3 +10,5 @@ matplotlib
 seaborn
 xlrd
 ConfigParser
+sqlalchemy
+psycopg2

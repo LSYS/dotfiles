@@ -4,4 +4,4 @@ bash/.exports
 bash/.functions
 bash/.inputrc
 git/.gitconfig
-tex/.latexmkrc
+misc/.latexmkrc
