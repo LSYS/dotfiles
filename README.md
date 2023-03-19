@@ -169,6 +169,6 @@ Will be installed by `win/winget.ps1` and `win/choco.ps1` (using PowerShell; `wi
 * `chocolatey.ps1` will install `Chocolatey` and other Windows app that cannot be installed by `winget` (e.g., MikTex, TexStudio, tree, postgresql, pgadmin4, du, etc.). This will require `PowerShell` admin priviledges. 
 
 
-### References:
+## References
 
-See here
+[See here.](https://github.com/LSYS/dotfiles/blob/main/misc/references.md)
