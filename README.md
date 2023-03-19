@@ -38,7 +38,7 @@ cd win
 
 ### Order of installation (Win)
 
-* Install `WSL`: Open `PowerShell` as administrator 
+1. Install `WSL`: Open `PowerShell` as administrator 
   ```PowerShell
   wsl --install -d Debian
   # confirm that bash is running
