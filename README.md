@@ -7,7 +7,7 @@
 
 > - [My key concerns/needs](#my-key-concernsneeds)
 > - [Installation: Main Scripts](#installation-main-scripts)
-> - [Order of Installation](#order-of-installation-win)
+> - [Installation: Order of Installation](#installation-order-of-installation-win)
 > - [Additonal Details](#additional-details)
 > - [References](#references)
 </p></details><p></p>
@@ -42,7 +42,7 @@ cd win
 ./choco
 ```
 
-## Order of Installation (Win)
+## Installation: Order of Installation (Win)
 
 1. Install `WSL`: Open `PowerShell` as administrator 
     ```PowerShell
