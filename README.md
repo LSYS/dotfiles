@@ -6,7 +6,8 @@
 <details open><summary><b>show/hide</b></summary><p>
 
 > - [My key concerns/needs](#my-key-concernsneeds)
-> - [Installation](#installation)
+> - [Installation: Main Scripts](#installation-main-scripts)
+> - [Order of Installation](#order-of-installation-win)
 > - [Additonal Details](#additional-details)
 > - [References](#references)
 </p></details><p></p>
@@ -19,7 +20,7 @@
 * LaTeX + reveal-md for typesetting
 * Bash should be properly set up with prompts (via `Oh-My-Posh`)
 
-## Installation
+## Installation: Main Scripts
 
 ### Using the bootstrap script
 The **`bootstrap.sh`** file will take care of installing almost everything in my Linux subsystem. Just `cd` into the local folder of this repo and run `./bootstrap.sh`. This `bootstrap.sh` script calls the individual installers to set up the dotfiles, `bin/`, and package installers using `APT`, `Homebrew` (`Linuxbrew`), and `NPM`.
@@ -41,7 +42,7 @@ cd win
 ./choco
 ```
 
-### Order of installation (Win)
+## Order of Installation (Win)
 
 1. Install `WSL`: Open `PowerShell` as administrator 
     ```PowerShell
