@@ -39,112 +39,136 @@ cd win
 ### Order of installation (Win)
 
 1. Install `WSL`: Open `PowerShell` as administrator 
-  ```PowerShell
-  wsl --install -d Debian
-  # confirm that bash is running
-  which $SHELL
-  ```
+    ```PowerShell
+    wsl --install -d Debian
+    # confirm that bash is running
+    which $SHELL
+    ```
   
-* Install Native Windows apps: Open `PowerShell`
-  ```PowerShell
-  ./winget.ps1
-  ./choco.ps1
-  ```
-  This will install `WindowsTerminal` and `Oh-My-Posh`. Type
-  ```PowerShell
-  oh-my-posh font install
-  ```
-  to install the fonts and choose Meslo (recommended). Seth the font in WindowTerminal setting (settings.json)
-  ```json
-  {
-      "profiles":
-      {
-          "defaults":
-          {
-              "font":
-              {
-                  "face": "MesloLGM NF"
-              }
-          }
-      }
-  }
-  ```
-* Open WSL (`Debian`) in WindowsTerminal and run the `bootstrap.sh` installer:
-  ```bash
-  cd $HOME/dotfiles && ./bootstrap.sh
-  ```
-  This will call the following installers:
-  * `dotfiles.sh`
-  * `bin/install.sh`
-  * `apt/install.sh`
-  * `brew/install.sh`
-  * `npm/install.sh`
-  * `monty/install.sh`
+1. Install Native Windows apps: Open `PowerShell`
+    ```PowerShell
+    ./winget.ps1
+    ./choco.ps1
+    ```
+    This will install `WindowsTerminal` and `Oh-My-Posh`. Type
+    ```PowerShell
+    oh-my-posh font install
+    ```
+    to install the fonts and choose Meslo (recommended). Seth the font in WindowTerminal setting (settings.json)
+    ```json
+    {
+        "profiles":
+        {
+            "defaults":
+            {
+                "font":
+                {
+                    "face": "MesloLGM NF"
+                }
+            }
+        }
+    }
+    ```
+3. Open WSL (`Debian`) in WindowsTerminal and run the `bootstrap.sh` installer:
+    ```bash
+    cd $HOME/dotfiles && ./bootstrap.sh
+    ```
+    This will call the following installers:
+    * `dotfiles.sh`
+    * `bin/install.sh`
+    * `apt/install.sh`
+    * `brew/install.sh`
+    * `npm/install.sh`
+    * `monty/install.sh`
 
-* Once `Oh-My-Posh` is installed via `brew/install.sh`. Check that it works
-  ```bash
-  eval "$(oh-my-posh init bash)"
-  ```
-  and symlink the poshthemes to home (where `bash/.bash_profile` will look for the themes)
-  ```bash
-  cd $HOME && mkdir poshthemes && cd poshthemes
-  ln -s /home/linuxbrew/.linuxbrew/opt/oh-my-posh/themes/* 
-  ```
+4. Once `Oh-My-Posh` is installed via `brew/install.sh`. Check that it works
+    ```bash
+    eval "$(oh-my-posh init bash)"
+    ```
+    and symlink the poshthemes to home (where `bash/.bash_profile` will look for the themes)
+    ```bash
+    cd $HOME && mkdir poshthemes && cd poshthemes
+    ln -s /home/linuxbrew/.linuxbrew/opt/oh-my-posh/themes/* 
+    ```
 
 ## Additional Details
 
 ### Bash
 
-* `.exports`: for Environment variables (e.g., custom shell utilities and `conda` is specified here)
+Will be installed in `./dotfiles.sh`.
+```console
+.
+├── bash
+│  ├── .bash_aliases
+│  ├── .bash_profile
+│  ├── .exports
+│  ├── .functions
+│  └── .inputrc
+```
 
-Will be installed in ???
+* `.bash_aliases`: Shell aliases defined here (including some for `Git`)
+* `.bash_profile`: General bash settings (including `Oh-My-Posh` and sources other bash `dotfiles`)
+* `.exports`: For `environment variables` (e.g., custom shell utilities and `conda` is specified here)
+* `.functions`: For functions too big for `bash_aliases` but too small for `bin/`
+* `.inputrc`: Config for input (`case-insensitive completion` here) 
 
-`.bash_profile` is the first config that will be read by `bash`. So this file will source all other relevant dotfiles.
+(**Note:** `.bash_profile` is the first config that will be read by `bash`. So this file will source all other relevant dotfiles.)
+
+### Git
+
+Will be installed in `./dotfiles.sh`.
+
+```Console
+├── git
+│  └── .gitconfig
+```
+
+`.gitconfig` includes `Git` aliases.
+
+### Python + (Mini)Conda (`.monty/`)
+
+Will be installed by `./monty.install.sh`.
+```console
+├── monty
+│  ├── install.sh
+│  ├── jupyter_notebook_config.py
+│  └── requirements
+│     ├── requirements_base.txt
+│     ├── requirements_dev.txt
+│     ├── requirements_docs.txt
+│     └── requirements_gis.txt
+```
+
+* `requirements/` contain the individual requirement*.txt files
+* `jupyter_notebook_config.py` sets up Jupyter Notebooks to run from Chrome (native from Windows)
+* `install.sh` installs Miniconda, Jupyter Notebook (and its extensions), installs base packages into base, creates `venv`s and install the relevant packages into it.
+
+### NPM
+
+Will be installed by `npm/install.sh`.
+```console
+├── npm
+│  └── install.sh
+```
+
+* Sets up `NVM` and `NPM`. 
+* Installs `reveal-md` (`reveal.js`) and other utilities only available from `NPM`.
+
+### Windows
+
+Will be installed by `win/winget.ps1` and `win/choco.ps1` (using PowerShell; `win/choco.ps1` will require admin priviledges).
+
+```console
+├── win
+│  ├── chocolatey.ps1
+│  ├── terminal-settings.json
+│  └── winget.ps1
+```
+
+* `winget.ps1` will install `winget` and follow up by installing other applications (e.g. Chrome, WindowsTerminal, Oh-My-Posh, GNUMake, PowerToys, 7zip, Slack, Sublime Text, Git etc.).
+* `chocolatey.ps1` will install `Chocolatey` and other Windows app that cannot be installed by `winget` (e.g., MikTex, TexStudio, tree, postgresql, pgadmin4, du, etc.). This will require `PowerShell` admin priviledges. 
 
 
 ### References:
 
-* [Mathias’s dotfiles](https://github.com/mathiasbynens/dotfiles)
-  <details>
-  <summary>(More notes)</summary>
-  <ul>
-    <li>Using his compartmentalization of `bash` dotfiles (bashrc, bash_profile, exports, functions, etc.) but using them in terms of a topical organization (so all of them are in `bash/`.</li>
-    <li>`.functions`
-    <li>Using his way of putting shell scripts in `bin/`
-  </ul>
-  </details>
-  
-* [`webpro`'s Getting started with dotfiles](https://www.webpro.nl/articles/getting-started-with-dotfiles)
-  <details>
-  <summary>(More notes)</summary>
-  <ul>
-    <li>Using his way of using a `.functions` for shell scripts too complex for an alias (for `.bash_aliases`) but too small for stand-alone scripts (like in `bin/`). (This is of course a judgement call.)
-    </li>
-    <li>He is more explicit on the compartmentalizing of dotfiles
-    </li>
-  </ul>
-  </details>
-* Topical organization  
-    <details>
-    <summary>(More notes)</summary>
-    <ul>
-      <li>
-      <a href="https://driesvints.com/blog/getting-started-with-dotfiles/">Dries Vints's Getting Started with Dotfiles</a>
-      </li>
-      <li>
-      <a href="https://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/">Zach Holman's Dotfiles Are Meant to Be Forked</a>
-      </li>
-    </ul>
-    </details>
-  
-* [Wynn Netherland's Dotfiles discovery](https://wynnnetherland.com/journal/dotfiles-discovery)  
-    <details>
-    <summary>(More notes)</summary>
-    <ul>
-      <li>
-      Just do a search for known config file names on GitHub
-      </li>
-    </ul>
-    </details>
-    
-(`webpro`'s (Lars Kappert) [curated resources](https://github.com/webpro/awesome-dotfiles) is a good one to find other resources.)    
+See here
