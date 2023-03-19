@@ -247,7 +247,7 @@ if ($LASTEXITCODE -eq -1978335212) {
 }
 Write-Host "-----------------------------------------------------------------------"
 
-$_app = "WinDynamicDesktop"
+$_app = "ModernFlyouts"
 Write-Output "===> Installing $_app"
 winget install --id=ModernFlyouts.ModernFlyouts -e --accept-source-agreements
 Write-Output "Return code: $LASTEXITCODE"
