@@ -62,10 +62,13 @@ fi
 echo "Activating $venv_name..."
 source "$venv_name"/bin/activate
 
-echo "Installing packages into $venv_name..."
+echo "Installing $venv_name packages into $venv_name..."
 requirementsfile="$path2requirements/requirements_gis.txt" 
 cat "$requirementsfile"
 pip install -r "$requirementsfile"
+
+echo "Installing base packages into $venv_name..."
+pip install -r "$path2requirements"/requirements_base.txt
 
 which pip
 pip list
