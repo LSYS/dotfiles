@@ -1,6 +1,16 @@
 # .files for Windows + WSL
 ![alt text](misc/img/mugshot.png)
 
+<!---------------------- TABLE OF CONTENT ---------------------->
+# Roadmap(#roadmap)
+<details open><summary><b>show/hide</b></summary><p>
+
+> - [My key concerns/needs](#my-key-concernsneeds)
+> - [Installation](#installation)
+> - [Additonal Details](#additional-details)
+> - [References](#references)
+</p></details><p></p>
+
 ## My key concerns/needs
 
 * Install using package managers whenever possible (`apt`, `brew`, `winget`, `choco`, `npm`)
