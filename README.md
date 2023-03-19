@@ -32,18 +32,13 @@ cd dotfiles
 ```
 
 ### Using the PowerShell scripts
-The `PowerShell` scripts in `win/` will take care of installing Windows OS applications using `winget` and, to a smaller extent for applications that cannot be installed from `winget`, `Chocolatey`. The `winget.ps1` installs the desktop application and basic utilities. The `choco.ps1` installs mainly `LaTeX` and `PostgreSQL`.
+The `PowerShell` scripts in `win/` will take care of installing Windows OS applications using `winget` and, to a smaller extent for applications that cannot be installed from `winget`, `Chocolatey`. The `winget.ps1` installs the desktop application and basic utilities. The `choco.ps1` installs mainly `LaTeX` and `PostgreSQL` (requires Admin).
 
 To install apps using `winget` and `Chocolatey`:
 ```PowerShell
 cd win
 ./winget.ps1
 ./choco
-```
-
-`choco.ps1` requires PowerShell admin priviledges:
-```PowerShell
-./choco.ps1
 ```
 
 ### Order of installation (Win)
