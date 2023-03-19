@@ -129,9 +129,9 @@ Will be installed in `./dotfiles.sh`.
 │  └── .gitconfig
 ```
 
-`.gitconfig` includes `Git` aliases.
+`.gitconfig`: Includes `Git` aliases.
 
-### Python + (Mini)Conda (`.monty/`)
+### Python + (Mini)Conda (`./monty/`)
 
 Will be installed by `./monty.install.sh`.
 ```console
@@ -145,9 +145,8 @@ Will be installed by `./monty.install.sh`.
 │     └── requirements_gis.txt
 ```
 
-* `requirements/` contain the individual requirement*.txt files
-* `jupyter_notebook_config.py` sets up Jupyter Notebooks to run from Chrome (native from Windows)
-* `install.sh` installs Miniconda, Jupyter Notebook (and its extensions), installs base packages into base, creates `venv`s and install the relevant packages into it.
+* `jupyter_notebook_config.py`: Needed to make sure notebooks open in Chrome (native from Windows)
+* `install.sh`: Installs Miniconda, Jupyter Notebook (and its extensions), installs base packages into base, creates `venv`s and install the relevant packages into it.
 
 ### NPM
 
@@ -171,9 +170,16 @@ Will be installed by `win/winget.ps1` and `win/choco.ps1` (using PowerShell; `wi
 │  └── winget.ps1
 ```
 
-* `winget.ps1` will install `winget` and follow up by installing other applications (e.g. Chrome, WindowsTerminal, Oh-My-Posh, GNUMake, PowerToys, 7zip, Slack, Sublime Text, Git etc.).
-* `chocolatey.ps1` will install `Chocolatey` and other Windows app that cannot be installed by `winget` (e.g., MikTex, TexStudio, tree, postgresql, pgadmin4, du, etc.). This will require `PowerShell` admin priviledges. 
+* `winget.ps1`: Installs `winget` and follow up by installing other applications (e.g. Chrome, WindowsTerminal, Oh-My-Posh, GNUMake, PowerToys, 7zip, Slack, Sublime Text, Git etc.).
+* `chocolatey.ps1`: Installs `Chocolatey` and other Windows app that cannot be installed by `winget` (e.g., MikTex, TexStudio, tree, postgresql, pgadmin4, du, etc.). This will require `PowerShell` admin priviledges. 
 
+### Miscellaneous (`./misc/`)
+```console
+├── misc
+│  ├── img
+│  ├── .latexmkrc
+│  └── vimium.txt
+```
 
 ## References
 
