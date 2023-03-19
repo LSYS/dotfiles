@@ -2,7 +2,7 @@
 ![alt text](misc/img/mugshot.png)
 
 <!---------------------- TABLE OF CONTENT ---------------------->
-# Roadmap(#roadmap)
+# [Roadmap](#roadmap)
 <details open><summary><b>show/hide</b></summary><p>
 
 > - [My key concerns/needs](#my-key-concernsneeds)
