@@ -82,9 +82,9 @@ cd win
     This will call the following installers:
     * `dotfiles.sh`
     * `bin/install.sh`
-    * `apt/install.sh`
-    * `brew/install.sh`
-    * `npm/install.sh`
+    * `packages/apt.sh`
+    * `packages/brew.sh`
+    * `packages/npm.sh`
     * `monty/install.sh`
 
 4. Once `Oh-My-Posh` is installed via `brew/install.sh`. Check that it works
@@ -105,17 +105,17 @@ Will be installed in `./dotfiles.sh`.
 ```console
 .
 ├── bash
-│  ├── .bash_aliases
+│  ├── .aliases
 │  ├── .bash_profile
 │  ├── .exports
 │  ├── .functions
 │  └── .inputrc
 ```
 
-* `.bash_aliases`: Shell aliases defined here (including some for `Git`)
+* `.aliases`: Shell aliases defined here (including some for `Git`)
 * `.bash_profile`: General bash settings (including `Oh-My-Posh` and sources other bash `dotfiles`)
 * `.exports`: For `environment variables` (e.g., custom shell utilities and `conda` is specified here)
-* `.functions`: For functions too big for `bash_aliases` but too small for `bin/`
+* `.functions`: For functions too big for `aliases` but too small for `bin/`
 * `.inputrc`: Config for input (`case-insensitive completion` here) 
 
 (**Note:** `.bash_profile` is the first config that will be read by `bash`. So this file will source all other relevant dotfiles.)
@@ -148,16 +148,15 @@ Will be installed by `./monty.install.sh`.
 * `jupyter_notebook_config.py`: Needed to make sure notebooks open in Chrome (native from Windows)
 * `install.sh`: Installs Miniconda, Jupyter Notebook (and its extensions), installs base packages into base, creates `venv`s and install the relevant packages into it.
 
-### NPM
+### Packages
 
-Will be installed by `npm/install.sh`.
+Will be installed by `packages/apt.sh`, `packages/brew.sh`, and `packages/npm.sh`.
 ```console
-├── npm
-│  └── install.sh
+├── packages
+│  └── npm.sh
 ```
 
-* Sets up `NVM` and `NPM`. 
-* Installs `reveal-md` (`reveal.js`) and other utilities only available from `NPM`.
+* `npm.sh`: Sets up `NVM` and `NPM`. Installs `reveal-md` (`reveal.js`) and other utilities only available from `NPM`.
 
 ### Windows
 
