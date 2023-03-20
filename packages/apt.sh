@@ -1,10 +1,40 @@
 #!/bin/bash
+# Install wslutils
+sudo apt install gnupg2 apt-transport-https -y
+wget -O - https://pkg.wslutiliti.es/public.key | sudo tee -a /etc/apt/trusted.gpg.d/wslu.asc
+
+# Debian 10
+echo "deb https://pkg.wslutiliti.es/debian buster main" | sudo tee -a /etc/apt/sources.list
+# Debian 11
+echo "deb https://pkg.wslutiliti.es/debian bullseye main" | sudo tee -a /etc/apt/sources.list
+
+sudo apt update
+sudo apt install wslu -y
+
 
 # List of apps to install
 apps=(
-  app1
-  app2
-  app3
+  # utilities
+  build-essential
+  procps
+  curl
+  file
+  unzip
+  wget
+  pv
+  bsdmainutils
+  graphviz
+  # cli
+  tree
+  exa
+  shellcheck
+  # dev
+  make
+  git
+  graphviz
+  texlive-full
+  # knownfailure
+  invalidpackagename
 )
 
 # List of apps that fail to install
@@ -28,7 +58,11 @@ for app in "${apps[@]}"; do
 done
 
 # Print list of failed apps
+echo "-----------------------------------------------------------------------"
 if [ ${#failed[@]} -gt 0 ]; then
   echo "The following apps failed to install:"
   printf '%s\n' "${failed[@]}"
+  echo "Consider using brew to install these packages"
 fi
+
+
