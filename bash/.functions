@@ -39,15 +39,17 @@ function fs() {
   # Check if `du` supports the `-b` (bytes) option. If it does, the arg variable 
   # is set to -sbh (show sizes in human-readable format with byte suffixes). 
   # Otherwise, arg is set to -sh (show sizes in human-readable format with suffixes). 
+  local exclude_options="--exclude=.* --exclude=/proc --exclude=/sys --exclude=/dev"
+
   if du -b /dev/null > /dev/null 2>&1; then
     local arg=-sbh;
   else
     local arg=-sh;
   fi
   if [[ -n "$@" ]]; then
-    du $arg -- "$@" | sort -hr;
+    du $arg $exclude_options -- "$@" | sort -hr;
   else
-    du $arg .[^.]* ./* | sort -hr;
+    du $arg $exclude_options * | sort -hr;
   fi;
 }
 
