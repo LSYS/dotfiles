@@ -153,9 +153,12 @@ Will be installed by `./monty.install.sh`.
 Will be installed by `packages/apt.sh`, `packages/brew.sh`, and `packages/npm.sh`.
 ```console
 ├── packages
+│  ├── apt.sh
+│  ├── brew.sh
 │  └── npm.sh
 ```
-
+* `apt.sh`: Installs utilities from `APT`.
+* `brew.sh` Sets up and install `Linuxbrew`.
 * `npm.sh`: Sets up `NVM` and `NPM`. Installs `reveal-md` (`reveal.js`) and other utilities only available from `NPM`.
 
 ### Windows
