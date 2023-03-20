@@ -14,11 +14,11 @@
 
 ## My key concerns/needs
 
-* Install using package managers whenever possible (`apt`, `brew`, `winget`, `choco`, `npm`)
-* Main assests (dotfiles, bin/, etc.) are symlinked from this repo into `$HOME`
+* Use package managers whenever possible (`apt`, `brew`, `winget`, `choco`, `npm`)
+* Dotfiles are symlinked from this repo into `$HOME`
 * (Mini)Conda, Jupyter, Python
 * LaTeX + reveal-md for typesetting
-* Bash should be properly set up with prompts (via `Oh-My-Posh`)
+* Bash with `Oh-My-Posh`
 
 ## Installation: Main Scripts
 
@@ -33,8 +33,7 @@ cd dotfiles
 ```
 
 ### Using the PowerShell scripts
-The `PowerShell` scripts in `win/` will take care of installing Windows OS applications using `winget` and, to a smaller extent for applications that cannot be installed from `winget`, `Chocolatey`. The `winget.ps1` installs the desktop application and basic utilities. The `choco.ps1` installs mainly `LaTeX` and `PostgreSQL` (requires Admin).
-
+The `PowerShell` scripts in `win/` will take care of installing Windows OS applications using `winget` and, to a smaller extent for applications that cannot be installed from `winget`, `Chocolatey`. 
 To install apps using `winget` and `Chocolatey`:
 ```PowerShell
 cd win
@@ -51,7 +50,7 @@ cd win
     which $SHELL
     ```
   
-1. Install Native Windows apps: Open `PowerShell`
+1. Install Native Windows apps: Open `PowerShell` (`./choco.ps1` need Admin)
     ```PowerShell
     ./winget.ps1
     ./choco.ps1
@@ -153,9 +152,12 @@ Will be installed by `./monty.install.sh`.
 Will be installed by `packages/apt.sh`, `packages/brew.sh`, and `packages/npm.sh`.
 ```console
 ├── packages
+│  ├── apt.sh
+│  ├── brew.sh
 │  └── npm.sh
 ```
-
+* `apt.sh`: Installs utilities from `APT`.
+* `brew.sh` Sets up and install `Linuxbrew`.
 * `npm.sh`: Sets up `NVM` and `NPM`. Installs `reveal-md` (`reveal.js`) and other utilities only available from `NPM`.
 
 ### Windows
