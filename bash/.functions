@@ -1,6 +1,14 @@
-#!/usr/bin/env bash
+#!/bin/bash
+#
+# Collection of small functions used mainly for aliases and some utitities.
 
-# Create a new directory and enter it
+#######################################
+# Create a new directory and enter it.
+# Arguments:
+#   directory to create
+# Returns:
+#   0 if successful, non-zero on error
+#######################################
 function mkdircd() {
   if mkdir -p "$@" && cd "$_"; then
     return 0
