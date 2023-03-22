@@ -23,7 +23,6 @@ alias aliashelp='echo    "=========================" \
                  '
 alias ahelp=aliashelp
 
-
 #==============================================================================
 # Installs
 alias sag="sudo apt-get"
@@ -34,18 +33,15 @@ alias sagi="sudo apt-get install"
 alias sai="sudo apt install"
 alias sagr="sudo apt-get remove"
 
-
 #==============================================================================
 # Quick edits of config file(s)
 alias nbrc="nano ~/.bashrc && source ~/.bashrc"
 alias ebrc=nbrc
 
-
 #==============================================================================
 # Clear console
 alias cl=clear
 alias cls=cl
-
 
 #==============================================================================
 # Sublime Text
@@ -86,16 +82,13 @@ alias tex=texstudio
 alias texs=texstudio
 alias ts=texstudio
 
-
 #==============================================================================
 # Replace notepad with notepads
 alias notepad=notepads.exe
 
-
 #==============================================================================
 # VS Code
 alias vscode=code
-
 
 #==============================================================================
 # EXA - extended ls
@@ -126,8 +119,7 @@ alias treev="exa \
 	--git \
 	--all \
 	--ignore-glob .git
-	"	
-
+	"
 
 #==============================================================================
 # Rerun last command as root
@@ -135,14 +127,12 @@ alias rr='sudo $(history -p !!)'
 alias please=rr
 alias pls=rr
 
-
 #==============================================================================
 # bat/batcat (https://github.com/sharkdp/bat#how-to-use)
 if type -p batcat >/dev/null 2>&1; then
-	alias bat=batcat
+  alias bat=batcat
 fi
 alias cat=bat
-
 
 #==============================================================================
 # Easier navigation
@@ -162,7 +152,6 @@ alias sbrc="source ~/.bashrc"
 alias cddf="cd ~/dotfiles"
 alias cdf=cddf
 
-
 # Make directory and cd into it (see .functions)
 alias mkcd=mkdircd
 alias mcd=mkdircd
@@ -178,14 +167,12 @@ alias te="touchedit"
 alias open="start"
 alias o="start"
 
-
 #==============================================================================
 # Go up to root of a Git repository
 alias gitroot='go-up-to-git-root'
 alias gr=gitroot
 alias cgr=gitroot
 alias cdgr=gitroot
-
 
 #==============================================================================
 # Git stuff
