@@ -62,7 +62,7 @@ echo "-----------------------------------------------------------------------"
 if [ ${#failed[@]} -gt 0 ]; then
   echo "The following apps failed to install:"
   printf '%s\n' "${failed[@]}"
-  echo "Consider using brew to install these packages"
+  echo "Consider using brew or webi to install these packages"
 fi
 
 
