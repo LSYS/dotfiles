@@ -18,17 +18,28 @@ function mkdircd() {
   fi
 }
 
-
+#######################################
+# Create a new file and edit it. If file
+#   already exists, then just edit.
+# Arguments:
+#   filename to create (or edit)
+#######################################
 function touchedit() {
-	touch "$@" && subl "$_";
+  touch "$@" && subl "$_"
 }
 
-
-# cd to root directory of a Git repo, if in a Git repo
+#######################################
+# cd to root directory of a Git repo,
+#  if in a Git repo.
+# Arguments:
+#   None
+# Returns:
+#   0 of successful, non-zero if not a git repo
+#######################################
 function go-up-to-git-root {
-  # > /dev/null 2>&1 discards both stdout and stderr of the git command 
+  # > /dev/null 2>&1 discards both stdout and stderr of the git command
   # to the null device (/dev/null)
-  if ! git rev-parse --show-toplevel > /dev/null 2>&1; then
+  if ! git rev-parse --show-toplevel >/dev/null 2>&1; then
     echo "Error: Not inside a Git repository"
     return 1
   fi
@@ -38,56 +49,78 @@ function go-up-to-git-root {
     echo "Failed to change directory" >&2
     return 1
   fi
-  
 }
 
-
-# Determine size of a file or total size of a directory and sort descending
+#######################################
+# Determine size of a file or total size
+#   of a directory and sort descending.
+# Arguments:
+#   filepath or file to check for size
+# Outputs:
+#   Writes filesizes to stdout
+#######################################
 function fs() {
-  # Check if `du` supports the `-b` (bytes) option. If it does, the arg variable 
-  # is set to -sbh (show sizes in human-readable format with byte suffixes). 
-  # Otherwise, arg is set to -sh (show sizes in human-readable format with suffixes). 
+  # Check if `du` supports the `-b` (bytes) option. If it does, the arg variable
+  # is set to -sbh (show sizes in human-readable format with byte suffixes).
+  # Otherwise, arg is set to -sh (show sizes in human-readable format with suffixes).
   local exclude_options="--exclude=.* --exclude=/proc --exclude=/sys --exclude=/dev"
 
-  if du -b /dev/null > /dev/null 2>&1; then
-    local arg=-sbh;
+  if du -b /dev/null >/dev/null 2>&1; then
+    local arg=-sbh
   else
-    local arg=-sh;
+    local arg=-sh
   fi
   if [[ -n "$@" ]]; then
-    du $arg $exclude_options -- "$@" | sort -hr;
+    du "$arg" "$exclude_options" -- "$@" | sort -hr
   else
-    du $arg $exclude_options * | sort -hr;
-  fi;
+    du "$arg" "$exclude_options" * | sort -hr
+  fi
 }
 
-
-# `start` with no arguments opens the current directory, otherwise opens the given location
+#######################################
+# Opens a directory with file explorer.
+#   `start` with no arguments opens the
+#   current directory, otherwise opens the
+#   given location.
+# Arguments:
+#   Directory
+#######################################
 function start() {
   if [ $# -eq 0 ]; then
-    wstart .;
+    wstart .
   else
-    wstart "$@";
-  fi;
+    wstart "$@"
+  fi
 }
 
-
+#######################################
 # Clean up Linux system to keep it running smoothly
+# Arguments:
+#   None
+# Outputs:
+#   apt messages
+#######################################
 apt-cleanup() {
-    # Removes all package files that can be downloaded from the repositories and cached locally 
-    # in the system's package cache. This will free up disk space and remove packages that are
-    # no longer needed.
-    sudo apt-get clean
-    # Removes only the package files that have been cached for a period of time and are 
-    # no longer needed.
-    sudo apt-get autoclean
-    # Removes any packages that were automatically installed as dependencies of other packages, 
-    # but are no longer needed by any installed package. This can help to free up disk space 
-    # and remove clutter from the system.
-    sudo apt-get autoremove
+  # Removes all package files that can be downloaded from the repositories and cached locally
+  # in the system's package cache. This will free up disk space and remove packages that are
+  # no longer needed.
+  sudo apt-get clean
+  # Removes only the package files that have been cached for a period of time and are
+  # no longer needed.
+  sudo apt-get autoclean
+  # Removes any packages that were automatically installed as dependencies of other packages,
+  # but are no longer needed by any installed package. This can help to free up disk space
+  # and remove clutter from the system.
+  sudo apt-get autoremove
 }
 
-
+#######################################
+# Clean up Linuxbrew system to keep it running smoothly
+# Arguments:
+#   None
+# Outputs:
+#   Brew messages
+#######################################
 brew-cleanup() {
   # Update Homebrew formulae and Homebrew itself
   brew update
@@ -99,23 +132,34 @@ brew-cleanup() {
   brew cleanup -s --prune=all --verbose
 }
 
-
-# Weather
+#######################################
+# Report weather
+# Arguments:
+#   None
+# Outputs:
+#   Writes weather to stdout
+#######################################
 weather1() {
-    curl -s "https://wttr.in/${1:-Singapore}?m2F"
+  curl -s "https://wttr.in/${1:-Singapore}?m2F"
 }
 
 weather2() {
-    curl -s "https://wttr.in/${1:-Singapore}?m2F&format=v2"
+  curl -s "https://wttr.in/${1:-Singapore}?m2F&format=v2"
 }
 
-
+#######################################
 # Report a list of my dotfiles in $HOME
+# Arguments:
+#   None
+# Output:
+#   Writes list of dotfiles in $HOME to stdout
+#######################################
 function repdfile {
-  for dotfile in "$HOME"/.*
-  do
+  for dotfile in "$HOME"/.*; do
     # Skip special directories and files that are not regular files
-    if [[ "$dotfile" == "$HOME/." || "$dotfile" == "$HOME/.." || ! -f "$dotfile" ]]; then
+    if [[ "$dotfile" == "$HOME/." ||
+      "$dotfile" == "$HOME/.." ||
+      ! -f "$dotfile" ]]; then
       continue
     fi
     basename "$dotfile"
