@@ -149,6 +149,8 @@ weather2() {
 
 #######################################
 # Report a list of my dotfiles in $HOME
+# Globals:
+#   HOME
 # Arguments:
 #   None
 # Output:
