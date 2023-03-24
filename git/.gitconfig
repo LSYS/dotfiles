@@ -3,7 +3,7 @@ name = LSYS
     email = lucas@lucasshen.com
 [core]
     editor = nano
-	autocrlf = true
+	autocrlf = false
 [init]
     defaultBranch = main
 [credential]
