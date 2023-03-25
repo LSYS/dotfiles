@@ -23,3 +23,4 @@ name = LSYS
     commitsearch = !git rev-list --all | xargs git grep -F
     cs           = !git rev-list --all | xargs git grep -F
     fresh = !git fetch --all && git reset --hard origin/main && git clean --force
+	last = log -1 HEAD
