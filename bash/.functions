@@ -87,9 +87,17 @@ function fs() {
 #######################################
 function start() {
   if [ $# -eq 0 ]; then
-    wstart .
+    if type wstart >/dev/null 2>&1; then
+      wstart .
+    else
+      explorer.exe .
+    fi
   else
-    wstart "$@"
+    if type wstart >/dev/null 2>&1; then
+      wstart "$@"
+    else
+      explorer.exe "$@"
+    fi
   fi
 }
 
