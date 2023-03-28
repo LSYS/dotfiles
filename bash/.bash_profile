@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # ~/.bash_profile is the first thing that is read.
 # ~/.profile: executed by the command interpreter for login shells.

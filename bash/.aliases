@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #==============================================================================
 alias aliases="cat ~/.bash_aliases"
 alias al=aliases
