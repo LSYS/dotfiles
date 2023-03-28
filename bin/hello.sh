@@ -1,9 +1,8 @@
-#!/bin/bash -x
+#!/bin/bash
 
 hello() {
-	echo "hello"
-	echo "hello $1"
-	# return 1
+  echo "hello"
+  echo "hello $1"
 }
 
 hello "$1"
