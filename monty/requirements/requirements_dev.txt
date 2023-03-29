@@ -5,3 +5,4 @@ isort
 black
 twine
 pyflakes
+types-PyYAML
