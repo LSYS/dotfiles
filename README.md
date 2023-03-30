@@ -139,10 +139,10 @@ Will be installed by `./monty.install.sh`.
 │  ├── install.sh
 │  ├── jupyter_notebook_config.py
 │  └── requirements
-│     ├── requirements_base.txt
-│     ├── requirements_dev.txt
-│     ├── requirements_docs.txt
-│     └── requirements_gis.txt
+│     ├── base.txt
+│     ├── dev.txt
+│     ├── docs.txt
+│     └── gis.txt
 ```
 
 * `jupyter_notebook_config.py`: Needed to make sure notebooks open in Chrome (native from Windows)
@@ -179,10 +179,12 @@ Will be installed by `win/winget.ps1` and `win/choco.ps1` (using PowerShell; `wi
 ```console
 ├── misc
 │  ├── img
+│  ├── .curlrc
 │  ├── .latexmkrc
+│  ├── .wgetrc
+│  ├── references.md
 │  └── vimium.txt
 ```
-
 ## References
 
 [See here.](https://github.com/LSYS/dotfiles/blob/main/misc/references.md)
