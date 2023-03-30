@@ -6,3 +6,4 @@ black
 twine
 pyflakes
 types-PyYAML
+pydocstyle

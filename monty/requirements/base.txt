@@ -12,3 +12,4 @@ xlrd
 ConfigParser
 sqlalchemy
 psycopg2
+tqdm

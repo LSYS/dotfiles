@@ -37,9 +37,9 @@ conda install notebook==6.4.8 --yes
 #============================================================================
 path2requirements="$DOTFILES_MASTER/monty/requirements"
 # Install to base
-pip install -r "$path2requirements"/requirements_base.txt
-pip install -r "$path2requirements"/requirements_docs.txt
-pip install -r "$path2requirements"/requirements_dev.txt
+pip install -r "$path2requirements"/exit 1base.txt
+pip install -r "$path2requirements"/docs.txt
+pip install -r "$path2requirements"/dev.txt
 
 ################
 # Set up GIS env
@@ -60,12 +60,12 @@ echo "Activating $venv_name..."
 source "$venv_name"/bin/activate
 
 echo "Installing $venv_name packages into $venv_name..."
-requirementsfile="$path2requirements/requirements_gis.txt"
+requirementsfile="$path2requirements/gis.txt"
 cat "$requirementsfile"
 pip install -r "$requirementsfile"
 
 echo "Installing base packages into $venv_name..."
-pip install -r "$path2requirements"/requirements_base.txt
+pip install -r "$path2requirements"/base.txt
 
 which pip
 pip list
@@ -80,7 +80,7 @@ function trim {
   printf '%s' "$var"
 }
 
-skipcheck=( # list of lines in the requirements_gis file to ignore in the import test
+skipcheck=( # list of lines in the gis file to ignore in the import test
   notebook==6.4.8
 )
 
