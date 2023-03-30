@@ -1,4 +1,4 @@
-# .files for Windows + WSL
+# My .files and setup configurations
 ![alt text](misc/img/mugshot.png)
 
 <!---------------------- TABLE OF CONTENT ---------------------->
@@ -14,6 +14,7 @@
 
 ## My key concerns/needs
 
+* WSL
 * Use package managers whenever possible (`apt`, `brew`, `winget`, `choco`, `npm`)
 * Dotfiles are symlinked from this repo into `$HOME`
 * (Mini)Conda, Jupyter, Python
