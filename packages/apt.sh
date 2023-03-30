@@ -1,4 +1,5 @@
 #!/bin/bash
+#
 # Install wslutils
 sudo apt install gnupg2 apt-transport-https -y
 wget -O - https://pkg.wslutiliti.es/public.key | sudo tee -a /etc/apt/trusted.gpg.d/wslu.asc

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+                 echo " asd"
 # defaults
 DOTFILES_MASTER="$HOME/dotfiles"
 INSTALL_PATH="$HOME"
@@ -36,7 +37,8 @@ install() {
     fi
 
     if [ -f "$dotfile" ]; then
-        echo "Installing $dotfile to $installpath/$(basename $dotfile)"
+        echo "Installing $dotfile to $installpath/$(basename "
+            $dotfile")"
         ln -sfv "$SRC" "$installpath/$(basename "$SRC")"
     else
         echo "Error: $dotfile does not exist"
@@ -55,7 +57,7 @@ install() {
 # text editors.
 #
 # -r: read the last line of the file even if it does not end with a newline character
-while read dotfile 
+while read -r dotfile 
 do
 	dotfile="${dotfile//$'\r'}"
 	install "$dotfile"

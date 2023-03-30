@@ -4,9 +4,15 @@ SHELLCHECK_OPTS := -e SC1090 -e SC1091
 .PHONY: check
 check: ## Check shell scripts using ShellCheck
 	shellcheck $(SHELLCHECK_OPTS) \
-		bash/.aliases \
-		bash/.bash_profile
-
+		bin/hello.sh \
+		bin/install.sh \
+		bin/symlink-tasks \
+		monty/install.sh \
+		packages/brew.sh \
+		packages/apt.sh \
+		packages/npm.sh \
+		bootstrap \
+		dotfiles.sh
 
 .PHONY: help
 help: ## Show this help message and exit
