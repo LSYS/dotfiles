@@ -1,0 +1,17 @@
+name: Lint shell scripts
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Setup
+      run: |
+        sudo apt install shellcheck
+        sudo apt install make
+    - name: Lint
+      run: |
+        make check
