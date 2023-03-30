@@ -5,3 +5,5 @@ bash/.functions
 bash/.inputrc
 git/.gitconfig
 misc/.latexmkrc
+misc/.wgetrc
+misc/.curlrc
