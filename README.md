@@ -24,13 +24,13 @@
 ## Installation: Main Scripts
 
 ### Using the bootstrap script
-The **`bootstrap.sh`** file will take care of installing almost everything in my Linux subsystem. Just `cd` into the local folder of this repo and run `./bootstrap.sh`. This `bootstrap.sh` script calls the individual installers to set up the dotfiles, `bin/`, and package installers using `APT`, `Homebrew` (`Linuxbrew`), and `NPM`.
+The **`bootstrap`** file will take care of installing almost everything in my Linux subsystem. Just `cd` into the local folder of this repo and run `./bootstrap`. This `bootstrap` script calls the individual installers to set up the dotfiles, `bin/`, and package installers using `APT`, `Homebrew` (`Linuxbrew`), and `NPM`.
 
 ```shell
 cd $HOME 
 git clone https://github.com/LSYS/dotfiles.git
 cd dotfiles
-./bootstrap.sh
+./bootstrap
 ```
 
 ### Using the PowerShell scripts
@@ -39,7 +39,7 @@ To install apps using `winget` and `Chocolatey`:
 ```PowerShell
 cd win
 ./winget.ps1
-./choco
+./choco.ps1
 ```
 
 ## Installation: Order of Installation (Win)
@@ -75,9 +75,9 @@ cd win
         }
     }
     ```
-3. Open WSL (`Debian`) in WindowsTerminal and run the `bootstrap.sh` installer:
+3. Open WSL (`Debian`) in WindowsTerminal and run the `bootstrap` installer:
     ```bash
-    cd $HOME/dotfiles && ./bootstrap.sh
+    cd $HOME/dotfiles && ./bootstrap
     ```
     This will call the following installers:
     * `dotfiles.sh`
@@ -87,7 +87,7 @@ cd win
     * `packages/npm.sh`
     * `monty/install.sh`
 
-4. Once `Oh-My-Posh` is installed via `brew/install.sh`. Check that it works
+4. Once `Oh-My-Posh` is installed via `packages/brew.sh`. Check that it works
     ```bash
     eval "$(oh-my-posh init bash)"
     ```
@@ -133,7 +133,7 @@ Will be installed in `./dotfiles.sh`.
 
 ### Python + (Mini)Conda (`./monty/`)
 
-Will be installed by `./monty.install.sh`.
+Will be installed by `./monty/install.sh`.
 ```console
 ├── monty
 │  ├── install.sh
@@ -145,8 +145,8 @@ Will be installed by `./monty.install.sh`.
 │     └── gis.txt
 ```
 
-* `jupyter_notebook_config.py`: Needed to make sure notebooks open in Chrome (native from Windows)
-* `install.sh`: Installs Miniconda, Jupyter Notebook (and its extensions), installs base packages into base, creates `venv`s and install the relevant packages into it.
+* `jupyter_notebook_config.py`: Needed to make sure notebooks open in browser (native from Windows)
+* `install.sh`: Installs Miniconda, Jupyter Notebook (and its extensions), installs base packages into base, creates `venv`(s) and installs the relevant packages into the `venv`(s).
 
 ### Packages
 
