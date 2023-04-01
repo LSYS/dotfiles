@@ -3,6 +3,9 @@
 # Install dotfiles
 ./dotfiles.sh
 
+# Install wslconfig
+win/wslconfig.sh
+
 # Install binaries
 bin/install.sh
 
@@ -10,4 +13,10 @@ bin/install.sh
 packages/apt.sh
 
 # Set up and install packages from brew
-# packages/brew.sh
+packages/brew.sh
+
+# Set up and install packages from NPM
+packages/npm.sh
+
+# Set up Conda + Python
+monty/install.sh
