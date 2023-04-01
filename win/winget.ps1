@@ -16,257 +16,143 @@ $existingApps = @()
 #############################################################################
 # Install utilities
 #############################################################################
-$_app = "MS PowerToys"
-Write-Output "===> Installing $_app"
-winget install Microsoft.PowerToys --source winget --accept-source-agreements
-Write-Output "Return code: $LASTEXITCODE"
-if ($LASTEXITCODE -eq -1978335212) {
-    $failedApps += $_app
-    Write-Output "===> Failed: $_app"
-} elseif ($LASTEXITCODE -eq -1978335189) {
-    $existingApps += $_app
-} elseif ($LASTEXITCODE -eq 0) {
-    $installedApps += $_app
-}
-Write-Host "-----------------------------------------------------------------------"
+$utilities = @(
+    @{
+        name = "MS PowerToys"
+        id = "Microsoft.PowerToys"
+    },
+    @{
+        name = "notepads"
+        id = "9NHL4NSC67WM"
+    },
+    @{
+        name = "QuickLook"
+        id = "QL-Win.QuickLook"
+    },
+    @{
+        name = "Adobe.Acrobat.Reader"
+        id = "Adobe.Acrobat.Reader.64-bit"
+    },
+    @{
+        name = "Slack"
+        id = "SlackTechnologies.Slack"
+    },
+    @{
+        name = "KeePass"
+        id = "DominikReichl.KeePass"
+    },
+    @{
+        name = "7zip"
+        id = "7zip.7zip"
+    },
+    @{
+        name = "Google.Chrome"
+        id = "Google.Chrome"
+    }    
+)
 
-$_app = "notepads"
-Write-Output "===> Installing $_app"
-winget install "Notepads App" --accept-source-agreements
-Write-Output "Return code: $LASTEXITCODE"
-if ($LASTEXITCODE -eq -1978335212) {
-    $failedApps += $_app
-    Write-Output "===> Failed: $_app"
-} elseif ($LASTEXITCODE -eq -1978335189) {
-    $existingApps += $_app
-} elseif ($LASTEXITCODE -eq 0) {
-    $installedApps += $_app
-}
-Write-Host "-----------------------------------------------------------------------"
+foreach ($app in $utilities) {
+    Write-Output "===> Installing $($app.name)"
+    winget install --id="$($app.id)" -e --accept-source-agreements
+    Write-Output "Return code: $LASTEXITCODE"
 
-$_app = "QuickLook"
-Write-Output "===> Installing $_app"
-winget install --id=QL-Win.QuickLook -e --accept-source-agreements
-Write-Output "Return code: $LASTEXITCODE"
-if ($LASTEXITCODE -eq -1978335212) {
-    $failedApps += $_app
-    Write-Output "===> Failed: $_app"
-} elseif ($LASTEXITCODE -eq -1978335189) {
-    $existingApps += $_app
-} elseif ($LASTEXITCODE -eq 0) {
-    $installedApps += $_app
+    if ($LASTEXITCODE -eq -1978335212) {
+        $failedApps += $app.name
+        Write-Output "===> Failed: $($app.name)"
+    } elseif ($LASTEXITCODE -eq -1978335189) {
+        $existingApps += $app.name
+    } elseif ($LASTEXITCODE -eq 0) {
+        $installedApps += $app.name
+    }
+    Write-Host "-----------------------------------------------------------------------"
 }
-Write-Host "-----------------------------------------------------------------------"
 
-$_app = "Adobe.Acrobat.Reader"
-Write-Output "===> Installing $_app"
-winget install --id=Adobe.Acrobat.Reader.64-bit -e --accept-source-agreements
-Write-Output "Return code: $LASTEXITCODE"
-if ($LASTEXITCODE -eq -1978335212) {
-    $failedApps += $_app
-    Write-Output "===> Failed: $_app"
-} elseif ($LASTEXITCODE -eq -1978335189) {
-    $existingApps += $_app
-} elseif ($LASTEXITCODE -eq 0) {
-    $installedApps += $_app
-}
-Write-Host "-----------------------------------------------------------------------"
-
-$_app = "Slack"
-Write-Output "===> Installing $_app"
-winget install --id=SlackTechnologies.Slack -e --accept-source-agreements
-Write-Output "Return code: $LASTEXITCODE"
-if ($LASTEXITCODE -eq -1978335212) {
-    $failedApps += $_app
-    Write-Output "===> Failed: $_app"
-} elseif ($LASTEXITCODE -eq -1978335189) {
-    $existingApps += $_app
-} elseif ($LASTEXITCODE -eq 0) {
-    $installedApps += $_app
-}
-Write-Host "-----------------------------------------------------------------------"
-
-$_app = "KeePass"
-Write-Output "===> Installing $_app"
-winget install --id=DominikReichl.KeePass -e --accept-source-agreements
-Write-Output "Return code: $LASTEXITCODE"
-if ($LASTEXITCODE -eq -1978335212) {
-    $failedApps += $_app
-    Write-Output "===> Failed: $_app"
-} elseif ($LASTEXITCODE -eq -1978335189) {
-    $existingApps += $_app
-} elseif ($LASTEXITCODE -eq 0) {
-    $installedApps += $_app
-}
-Write-Host "-----------------------------------------------------------------------"
-
-$_app = "7zip"
-Write-Output "===> Installing $_app"
-winget install 7zip.7zip -source winget --accept-source-agreements
-Write-Output "Return code: $LASTEXITCODE"
-if ($LASTEXITCODE -eq -1978335212) {
-    $failedApps += $_app
-    Write-Output "===> Failed: $_app"
-} elseif ($LASTEXITCODE -eq -1978335189) {
-    $existingApps += $_app
-} elseif ($LASTEXITCODE -eq 0) {
-    $installedApps += $_app
-}
-Write-Host "-----------------------------------------------------------------------"
-
-$_app = "Google.Chrome"
-Write-Output "===> Installing $_app"
-winget install Google.Chrome --accept-source-agreements
-Write-Output "Return code: $LASTEXITCODE"
-if ($LASTEXITCODE -eq -1978335212) {
-    $failedApps += $_app
-    Write-Output "===> Failed: $_app"
-} elseif ($LASTEXITCODE -eq -1978335189) {
-    $existingApps += $_app
-} elseif ($LASTEXITCODE -eq 0) {
-    $installedApps += $_app
-}
-Write-Host "-----------------------------------------------------------------------"
 
 #############################################################################
 # Dev
 #############################################################################
-$_app = "invalidpackagename"
-Write-Output "===> Installing $_app"
-winget install nullexample --source winget --accept-source-agreements
-Write-Output "Return code: $LASTEXITCODE"
-if ($LASTEXITCODE -eq -1978335212) {
-    $failedApps += $_app
-    Write-Output "===> Failed: $_app"
-} elseif ($LASTEXITCODE -eq -1978335189) {
-    $existingApps += $_app
-} elseif ($LASTEXITCODE -eq 0) {
-    $installedApps += $_app
-}
-Write-Host "-----------------------------------------------------------------------"
+$dev = @(
+    @{
+        name = "invalidpackagename"
+        id = "invalidpackagename"
+    },
+    @{
+        name = "Git"
+        id = "Git.Git"
+    },
+    @{
+        name = "GNUMake"
+        id = "GnuWin32.Make"
+    },
+    @{
+        name = "VS Code"
+        id = "Microsoft.VisualStudioCode"
+    },
+    @{
+        name = "SublimeText"
+        id = "SublimeHQ.SublimeText.4"
+    },
+    @{
+        name = "WindowsTerminal"
+        id = "Microsoft.WindowsTerminal"
+    },
+    @{
+        name = "OhMyPosh"
+        id = "JanDeDobbeleer.OhMyPosh"
+    }                                          
+)
 
-$_app = "Git"
-Write-Output "===> Installing $_app"
-winget install Git.Git --accept-source-agreements
-Write-Output "Return code: $LASTEXITCODE"
-if ($LASTEXITCODE -eq -1978335212) {
-    $failedApps += $_app
-    Write-Output "===> Failed: $_app"
-} elseif ($LASTEXITCODE -eq -1978335189) {
-    $existingApps += $_app
-} elseif ($LASTEXITCODE -eq 0) {
-    $installedApps += $_app
-}
-Write-Host "-----------------------------------------------------------------------"
+foreach ($app in $dev) {
+    Write-Output "===> Installing $($app.name)"
+    winget install --id="$($app.id)" -e --accept-source-agreements
+    Write-Output "Return code: $LASTEXITCODE"
 
-$_app = "GNUMake"
-Write-Output "===> Installing $_app"
-winget install GnuWin32.Make --source winget --accept-source-agreements
-Write-Output "Return code: $LASTEXITCODE"
-if ($LASTEXITCODE -eq -1978335212) {
-    $failedApps += $_app
-    Write-Output "===> Failed: $_app"
-} elseif ($LASTEXITCODE -eq -1978335189) {
-    $existingApps += $_app
-} elseif ($LASTEXITCODE -eq 0) {
-    $installedApps += $_app
+    if ($LASTEXITCODE -eq -1978335212) {
+        $failedApps += $app.name
+        Write-Output "===> Failed: $($app.name)"
+    } elseif ($LASTEXITCODE -eq -1978335189) {
+        $existingApps += $app.name
+    } elseif ($LASTEXITCODE -eq 0) {
+        $installedApps += $app.name
+    }
+    Write-Host "-----------------------------------------------------------------------"
 }
-Write-Host "-----------------------------------------------------------------------"
-
-$_app = "VS Code"
-Write-Output "===> Installing $_app"
-winget install Microsoft.VisualStudioCode -e --accept-source-agreements
-Write-Output "Return code: $LASTEXITCODE"
-if ($LASTEXITCODE -eq -1978335212) {
-    $failedApps += $_app
-    Write-Output "===> Failed: $_app"
-} elseif ($LASTEXITCODE -eq -1978335189) {
-    $existingApps += $_app
-} elseif ($LASTEXITCODE -eq 0) {
-    $installedApps += $_app
-}
-Write-Host "-----------------------------------------------------------------------"
-
-$_app = "SublimeText"
-Write-Output "===> Installing $_app"
-winget install --id=SublimeHQ.SublimeText.4 -e --accept-source-agreements
-Write-Output "Return code: $LASTEXITCODE"
-if ($LASTEXITCODE -eq -1978335212) {
-    $failedApps += $_app
-    Write-Output "===> Failed: $_app"
-} elseif ($LASTEXITCODE -eq -1978335189) {
-    $existingApps += $_app
-} elseif ($LASTEXITCODE -eq 0) {
-    $installedApps += $_app
-}
-Write-Host "-----------------------------------------------------------------------"
-
-$_app = "WindowsTerminal"
-Write-Output "===> Installing $_app"
-winget install Microsoft.WindowsTerminal --accept-source-agreements
-Write-Output "Return code: $LASTEXITCODE"
-if ($LASTEXITCODE -eq -1978335212) {
-    $failedApps += $_app
-    Write-Output "===> Failed: $_app"
-} elseif ($LASTEXITCODE -eq -1978335189) {
-    $existingApps += $_app
-} elseif ($LASTEXITCODE -eq 0) {
-    $installedApps += $_app
-}
-Write-Host "-----------------------------------------------------------------------"
-
-$_app = "OhMyPosh"
-Write-Output "===> Installing $_app"
-winget install JanDeDobbeleer.OhMyPosh -s winget --accept-source-agreements
-Write-Output "Return code: $LASTEXITCODE"
-if ($LASTEXITCODE -eq -1978335212) {
-    $failedApps += $_app
-    Write-Output "===> Failed: $_app"
-} elseif ($LASTEXITCODE -eq -1978335189) {
-    $existingApps += $_app
-} elseif ($LASTEXITCODE -eq 0) {
-    $installedApps += $_app
-}
-winget upgrade JanDeDobbeleer.OhMyPosh -s winget --accept-source-agreements
-Write-Host "-----------------------------------------------------------------------"
 
 #############################################################################
 # Desktop
 #############################################################################
-$_app = "WinDynamicDesktop"
-Write-Output "===> Installing $_app"
-winget install --id=t1m0thyj.WinDynamicDesktop  -e --accept-source-agreements
-Write-Output "Return code: $LASTEXITCODE"
-if ($LASTEXITCODE -eq -1978335212) {
-    $failedApps += $_app
-    Write-Output "===> Failed: $_app"
-} elseif ($LASTEXITCODE -eq -1978335189) {
-    $existingApps += $_app
-} elseif ($LASTEXITCODE -eq 0) {
-    $installedApps += $_app
-}
-Write-Host "-----------------------------------------------------------------------"
+$desktop = @(
+    @{
+        name = "WinDynamicDesktop"
+        id = "t1m0thyj.WinDynamicDesktop"
+    },
+    @{
+        name = "ModernFlyouts"
+        id = "ModernFlyouts.ModernFlyouts"
+    }
+)
 
-$_app = "ModernFlyouts"
-Write-Output "===> Installing $_app"
-winget install --id=ModernFlyouts.ModernFlyouts -e --accept-source-agreements
-Write-Output "Return code: $LASTEXITCODE"
-if ($LASTEXITCODE -eq -1978335212) {
-    $failedApps += $_app
-    Write-Output "===> Failed: $_app"
-} elseif ($LASTEXITCODE -eq -1978335189) {
-    $existingApps += $_app
-} elseif ($LASTEXITCODE -eq 0) {
-    $installedApps += $_app
-}
-Write-Host "-----------------------------------------------------------------------"
+foreach ($app in $desktop) {
+    Write-Output "===> Installing $($app.name)"
+    winget install --id="$($app.id)" -e --accept-source-agreements
+    Write-Output "Return code: $LASTEXITCODE"
 
+    if ($LASTEXITCODE -eq -1978335212) {
+        $failedApps += $app.name
+        Write-Output "===> Failed: $($app.name)"
+    } elseif ($LASTEXITCODE -eq -1978335189) {
+        $existingApps += $app.name
+    } elseif ($LASTEXITCODE -eq 0) {
+        $installedApps += $app.name
+    }
+    Write-Host "-----------------------------------------------------------------------"
+}
 
 #############################################################################
 # Print list of logs
 #############################################################################
 if ($installedApps.Count -gt 0) {
-    Write-Output "The following apps were installed:"
+    Write-Output "The following apps were installed/upgraded:"
     foreach ($installedApps in $installedApps) {
         Write-Output "--> $installedApps"
     }
