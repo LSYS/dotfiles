@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#
 # defaults
 DOTFILES_MASTER="$HOME/dotfiles"
 INSTALL_PATH="$HOME"
