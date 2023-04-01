@@ -11,6 +11,7 @@ jobs:
     - name: Setup
       run: |
         sudo apt install shellcheck
+        curl -sS https://webi.sh/shfmt | sh
         sudo apt install make
     - name: Lint
       run: |
