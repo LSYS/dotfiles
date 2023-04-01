@@ -81,6 +81,7 @@ cd win
     ```
     This will call the following installers:
     * `dotfiles.sh`
+    * `win/wslconfig.sh`
     * `bin/install.sh`
     * `packages/apt.sh`
     * `packages/brew.sh`
@@ -167,13 +168,17 @@ Will be installed by `win/winget.ps1` and `win/choco.ps1` (using PowerShell; `wi
 
 ```console
 ├── win
+│  ├── .wslconfig
+│  ├── .wslconfig-x1
 │  ├── chocolatey.ps1
 │  ├── terminal-settings.json
-│  └── winget.ps1
+│  ├── winget.ps1
+│  └── wslconfig.sh
 ```
 
 * `winget.ps1`: Installs `winget` and follow up by installing other applications (e.g. Chrome, WindowsTerminal, Oh-My-Posh, GNUMake, PowerToys, 7zip, Slack, Sublime Text, Git etc.).
 * `chocolatey.ps1`: Installs `Chocolatey` and other Windows app that cannot be installed by `winget` (e.g., MikTex, TexStudio, tree, postgresql, pgadmin4, du, etc.). This will require `PowerShell` admin priviledges. 
+* `wslconfig.sh`: Installs `.wslconfig` to `c/Users/<username>`
 
 ### Miscellaneous (`./misc/`)
 ```console
