@@ -2,7 +2,6 @@
 
 # defaults
 DOTFILES_MASTER="$HOME/dotfiles"
-INSTALL_PATH="$HOME"
 
 echo "==================" 
 echo "Install wslconfig"
@@ -17,8 +16,9 @@ echo
 echo "--------------------------------------------" 
 
 install() {
-    local username=$(whoami.exe)
-    username=$(echo $username | awk -F '\\' '{print $2}' | tr -d '\r')
+    username=$(whoami.exe)
+    local username
+    username=$(echo "$username" | awk -F '\\' '{print $2}' | tr -d '\r')
     local installpath="/mnt/c/Users/$username/"
     echo "Username: $username"
 

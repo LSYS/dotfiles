@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-SHELLCHECK_OPTS := -e SC1090 -e SC1091
+SHELLCHECK_OPTS := -e SC1090 -e SC1091 -e SC1003
 .PHONY: check
 check: ## Check shell scripts using ShellCheck
 	shellcheck $(SHELLCHECK_OPTS) \
@@ -11,12 +11,13 @@ check: ## Check shell scripts using ShellCheck
 		packages/brew.sh \
 		packages/apt.sh \
 		packages/npm.sh \
+		win/wslconfig.sh \
 		bootstrap \
 		dotfiles.sh
 
 # Define a Makefile rule to check the formatting of shell script files using shfmt
 SHELL_SCRIPTS := $(wildcard *.sh)
-BASH_SH := bash/.aliases bash/.bash_profile bash/.exports bash/.functions bash/.inputrc
+BASH_SH := bash/.aliases bash/.bash_profile bash/.exports bash/.functions
 shfmt: ## Check with shfmt
 	@echo "Checking shell script formatting with shfmt..."
 	@echo "These files need formatting:"
@@ -24,9 +25,12 @@ shfmt: ## Check with shfmt
 		$(SHELL_SCRIPTS) \
 		$(BASH_SH) \
 		bin/symlink-tasks \
-		bootstrap \
 		|| (echo "Shell script formatting errors detected." \
 			&& exit 1)
+
+.PHONY: lint
+lint: ## Lint shell scripts with ShellCheck and shfmt
+lint: check shfmt
 
 .PHONY: help
 help: ## Show this help message and exit
