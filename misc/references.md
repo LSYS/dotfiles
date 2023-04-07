@@ -44,3 +44,6 @@ Some resources I use as reference.
     </details>
     
 (`webpro`'s (Lars Kappert) [curated resources](https://github.com/webpro/awesome-dotfiles) is a good one to find other resources.)    
+
+* [Scott Hanselman's 2021 Ultimate Developer and Power Users Tool List for Windows](https://www.hanselman.com/blog/scott-hanselmans-2021-ultimate-developer-and-power-users-tool-list-for-windows)
+* [Lance McCarthy's list of winget IDs](https://gist.github.com/LanceMcCarthy/351330330072484b4c96b6c97b87fe5b?WT.mc_id=-blog-scottha)
