@@ -27,3 +27,6 @@ unset __conda_setup
 
 # NPM
 export NVM_DIR="$HOME/.nvm"
+
+export SHELLOPTS
+SHELLOPTS="igncr"

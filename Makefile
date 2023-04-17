@@ -3,6 +3,7 @@
 SHELLCHECK_OPTS := -e SC1090 -e SC1091 -e SC1003
 .PHONY: check
 check: ## Check shell scripts using ShellCheck
+	@echo "==> Check shell scripts using ShellCheck"
 	shellcheck $(SHELLCHECK_OPTS) \
 		bin/hello.sh \
 		bin/install.sh \
@@ -31,6 +32,14 @@ shfmt: ## Check with shfmt
 .PHONY: lint
 lint: ## Lint shell scripts with ShellCheck and shfmt
 lint: check shfmt
+
+.PHONY: cleancr
+cleancr: ## Clean shell scripts for \cr carriage return from dos
+files := bash/.aliases bash/.bash_profile bash/.exports bash/.functions bash/.inputrc
+cleancr:
+	@echo "Clean shell scripts for \cr carriage return from dos..."
+	dos2unix $(files)
+
 
 .PHONY: help
 help: ## Show this help message and exit

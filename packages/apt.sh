@@ -25,6 +25,7 @@ apps=(
   pv
   bsdmainutils
   graphviz
+  dos2unix
   # cli
   tree
   exa
