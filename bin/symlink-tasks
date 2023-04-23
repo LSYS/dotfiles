@@ -45,10 +45,11 @@ generate_graph() {
   for link in $symlinks; do
     symlink=$(echo "$link" | sed -e "s|$directory/||" \
       -e 's|.*scripts/||' -e 's|/input.*||' \
-      -e 's|/src.*||' -e 's|/frozen.*||')
+      -e 's|/src.*||' -e 's|/frozen.*||' -e 's|/hand.*||') 
     source=$(readlink "$link" | sed -e "s|$directory/||" \
       -e 's|.*scripts/||' -e 's|\.\./||g' -e 's|/output.*||' \
-      -e 's|/src.*||' -e 's|/frozen.*||' -e 's/\.//g' -e 's|^/||')
+      -e 's|/src.*||' -e 's|/frozen.*||' -e 's|/hand.*||' \
+      -e 's/\.//g' -e 's|^/||')
     entry="\"$source\" -> \"$symlink\";"
     if ! grep -q "$entry" "$output"; then
       echo "$entry" >>"$output"
