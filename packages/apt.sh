@@ -26,6 +26,7 @@ apps=(
   bsdmainutils
   graphviz
   dos2unix
+  pandoc
   # cli
   tree
   exa
