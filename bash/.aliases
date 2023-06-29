@@ -1,19 +1,19 @@
 #!/bin/bash
 
 #==============================================================================
-alias aliases="cat ~/.bash_aliases"
+alias aliases="cat ~/.aliases"
 alias al=aliases
 alias showal=aliases
 alias sal=aliases
 alias iforgot=aliases
-alias edal="subl ~/dotfiles/bash/.bash_aliases"
+alias edal="subl ~/dotfiles/bash/.aliases"
 
 alias aliashelp='echo    "=========================" \
 								 && echo "Quick help for my aliases" \
 								 && echo "=========================" \
-								 && echo "aliases: Show all aliases in .bash_aliases" \
+								 && echo "aliases: Show all aliases in .aliases" \
 								 && echo "gital:   Show all Git aliases in .gitconfig" \
-								 && echo "edal:  	 Edit .bash_aliases" \
+								 && echo "edal:  	 Edit .aliases" \
                  && echo "ebrc:    Edit .bashrc (and then source afterwards)" \
                  && echo "ep:    	 Edit .profile (and then source afterwards)" \
                  && echo "clear:   Clear console" \
@@ -114,6 +114,29 @@ alias tree="exa \
 	--ignore-glob .git
 	"
 
+alias tree3="exa \
+	--tree \
+	--level=3 \
+	--long \
+	--group-directories-first \
+	--header \
+	--git \
+	--all \
+	--ignore-glob .git
+	"
+
+alias tree4="exa \
+	--tree \
+	--level=4 \
+	--long \
+	--group-directories-first \
+	--header \
+	--git \
+	--all \
+	--ignore-glob .git
+	"
+
+# Vanilla tree
 alias treev="exa \
 	--tree \
 	--level=2 \
