@@ -33,6 +33,8 @@ bind -f ~/.inputrc
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(oh-my-posh --init --shell bash --config ~/poshthemes/slim.omp.json)"
 
+export PATH=/usr/local/bin:$PATH
+
 #============================================================================
 cd || exit 1
 clear

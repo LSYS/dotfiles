@@ -68,7 +68,7 @@ alias sub=sublimetext
 
 #==============================================================================
 # TexStudio
-TEXTSTUDIO_SOURCE1="/mnt/c/Program Files (x86)/texstudio/texstudio.exe"
+TEXTSTUDIO_SOURCE1='"/mnt/c/Program Files (x86)/texstudio/texstudio.exe"'
 TEXTSTUDIO_SOURCE2="/mnt/c/Program Files/texstudio/texstudio.exe"
 TEXTSTUDIO_SOURCE1_WITH_BACKSLASHES=$(echo "$TEXTSTUDIO_SOURCE1" | sed 's/ /\\ /g')
 TEXTSTUDIO_SOURCE2_WITH_BACKSLASHES=$(echo "$TEXTSTUDIO_SOURCE2" | sed 's/ /\\ /g')
@@ -83,6 +83,8 @@ fi
 alias tex=texstudio
 alias texs=texstudio
 alias ts=texstudio
+
+alias texstudio='"/mnt/c/Program Files (x86)/texstudio/texstudio.exe"'
 
 #==============================================================================
 # Replace notepad with notepads
