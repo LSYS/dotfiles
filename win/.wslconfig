@@ -1,4 +1,3 @@
 [wsl2]
-memory=22GB
-swap=50
-swapFile=D:\\swap.vhdx
+memory=64GB
+swap=32GB
