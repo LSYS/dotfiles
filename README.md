@@ -117,7 +117,8 @@ Will be installed in `./dotfiles.sh`.
 * `.bash_profile`: General bash settings (including `Oh-My-Posh` and sources other bash `dotfiles`)
 * `.exports`: For `environment variables` (e.g., custom shell utilities and `conda` is specified here)
 * `.functions`: For functions too big for `aliases` but too small for `bin/`
-* `.inputrc`: Config for input (`case-insensitive completion` here) 
+* `.inputrc`: Config for input (`case-insensitive completion` here)
+* Run `make cleancr` to sanitize shell scrips for \cr carriage returns (might lead to unexpected, and quiet, breakages)
 
 (**Note:** `.bash_profile` is the first config that will be read by `bash`. So this file will source all other relevant dotfiles.)
 
