@@ -148,6 +148,23 @@ alias treev="exa \
 	--ignore-glob .git
 	"
 
+alias treev2="exa \
+	--tree \
+	--level=2 \
+	--group-directories-first \
+	--git \
+	--all \
+	--ignore-glob .git
+	"
+
+alias treev3="exa \
+	--tree \
+	--level=3 \
+	--group-directories-first \
+	--git \
+	--all \
+	--ignore-glob .git
+	"	
 #==============================================================================
 # Rerun last command as root
 alias rr='sudo $(history -p !!)'
